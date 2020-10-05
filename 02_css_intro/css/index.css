@@ -1,0 +1,29 @@
+h1 {
+    color: pink;
+}
+
+a {
+    color: yellow;
+}
+
+ol > li#my-list-item {
+    color: orange;
+}
+
+li.list-item {
+    color: purple;
+}
+
+ol > li {
+    color: red;
+    font-weight: bold;
+}
+
+li {
+    /* color: blue !important; */
+    /* baaaaaaaaaaad practice */
+}
+
+li#my-list-item {
+    color: black;
+}
