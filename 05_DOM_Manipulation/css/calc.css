@@ -1,0 +1,7 @@
+div#calc>* {
+    margin-bottom: 5px;
+}
+
+button {
+    margin-right: 24px;
+}
