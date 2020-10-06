@@ -24,32 +24,3 @@ function calc(op) {
     writeResult(newResult);
     addHistory(a, op, b, newResult);
 }
-
-
-function add() {
-    const [a, b] = getValues(); //https://portal.qa-community.co.uk/~/cne/learning/javascript/javascript--destructuring#overview
-    const newResult = a + b;
-    writeResult(newResult);
-    addHistory(a, '+', b, newResult);
-}
-
-function subtract() {
-    const [a, b] = getValues();
-    const newResult = a - b;
-    writeResult(newResult);
-    addHistory(a, '-', b, newResult);
-}
-
-function multiply() {
-    const [a, b] = getValues();
-    const newResult = a * b;
-    writeResult(newResult);
-    addHistory(a, '*', b, newResult);
-}
-
-function divide() {
-    const [a, b] = getValues();
-    const newResult = a / b;
-    writeResult(newResult);
-    addHistory(a, '/', b, newResult);
-}
