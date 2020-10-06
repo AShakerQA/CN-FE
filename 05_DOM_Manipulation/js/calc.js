@@ -11,16 +11,16 @@ function writeResult(newResult) {
     result.value = newResult;
 }
 
-function addHistory(a, op, b, newResult) {
+function addHistory(num1, op, num2, newResult) {
     const newHistory = document.createElement('p');
-    newHistory.innerText = `${a} ${op} ${b} = ${newResult}`;
+    newHistory.innerText = `${num1} ${op} ${num2} = ${newResult}`;
 
     myHistory.prepend(newHistory);
 }
 
 function calc(op) {
-    const [a, b] = getValues();
-    const newResult = eval(`${a} ${op} ${b}`)
+    const [num1, num2] = getValues();
+    const newResult = eval(`${num1} ${op} ${num2}`)
     writeResult(newResult);
-    addHistory(a, op, b, newResult);
+    addHistory(num1, op, num2, newResult);
 }
