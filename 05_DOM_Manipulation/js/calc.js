@@ -15,8 +15,16 @@ function addHistory(a, op, b, newResult) {
     const newHistory = document.createElement('p');
     newHistory.innerText = `${a} ${op} ${b} = ${newResult}`;
 
-    myHistory.appendChild(newHistory);
+    myHistory.prepend(newHistory);
 }
+
+function calc(op) {
+    const [a, b] = getValues();
+    const newResult = eval(`${a} ${op} ${b}`)
+    writeResult(newResult);
+    addHistory(a, op, b, newResult);
+}
+
 
 function add() {
     const [a, b] = getValues(); //https://portal.qa-community.co.uk/~/cne/learning/javascript/javascript--destructuring#overview
