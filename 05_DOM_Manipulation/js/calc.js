@@ -11,37 +11,37 @@ function writeResult(newResult) {
     result.value = newResult;
 }
 
-function addHistory(a, op, b, newResult) {
+function addHistory(num1, op, num2, newResult) {
     const newHistory = document.createElement('p');
-    newHistory.innerText = `${a} ${op} ${b} = ${newResult}`;
+    newHistory.innerText = `${num1} ${op} ${num2} = ${newResult}`;
 
     myHistory.appendChild(newHistory);
 }
 
 function add() {
-    const [a, b] = getValues(); //https://portal.qa-community.co.uk/~/cne/learning/javascript/javascript--destructuring#overview
-    const newResult = a + b;
+    const [num1, num2] = getValues(); //https://portal.qa-community.co.uk/~/cne/learning/javascript/javascript--destructuring#overview
+    const newResult = num1 + num2;
     writeResult(newResult);
-    addHistory(a, '+', b, newResult);
+    addHistory(num1, '+', num2, newResult);
 }
 
 function subtract() {
-    const [a, b] = getValues();
-    const newResult = a - b;
+    const [num1, num2] = getValues();
+    const newResult = num1 - num2;
     writeResult(newResult);
-    addHistory(a, '-', b, newResult);
+    addHistory(num1, '-', num2, newResult);
 }
 
 function multiply() {
-    const [a, b] = getValues();
-    const newResult = a * b;
+    const [num1, num2] = getValues();
+    const newResult = num1 * num2;
     writeResult(newResult);
-    addHistory(a, '*', b, newResult);
+    addHistory(num1, '*', num2, newResult);
 }
 
 function divide() {
-    const [a, b] = getValues();
-    const newResult = a / b;
+    const [num1, num2] = getValues();
+    const newResult = num1 / num2;
     writeResult(newResult);
-    addHistory(a, '/', b, newResult);
+    addHistory(num1, '/', num2, newResult);
 }
