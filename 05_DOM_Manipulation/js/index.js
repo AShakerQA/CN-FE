@@ -53,3 +53,15 @@ arr.filter(i => i % 2 === 0).map(i => i * i).forEach(i => console.log(i));
 
 const arr2 = [23, 43536, 4353536, 242, 4647];
 
+arr.reduce((acc, next) => acc + next);
+
+let max = (accumulator, next) => {
+    debugger;
+    if (accumulator > next) {
+        return accumulator;
+    } else {
+        return next;
+    }
+}
+
+arr.reduce(max);
