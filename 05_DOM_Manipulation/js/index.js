@@ -15,3 +15,41 @@ function addNew() {
 
     output.appendChild(newP);
 }
+
+const hello = function() {
+    console.log("Hello, World!");
+}
+
+// higher order -> a function that either accepts or returns another function
+const higherOrder = function(func) {
+    console.log("calling func");
+    func();
+    console.log("called func");
+}
+
+higherOrder(hello);
+
+function getHello() { 
+    return hello;
+}
+/*
+function add(a, b) {
+    return a + b;
+}
+
+const add = function(a, b) {
+    return a + b;
+}
+
+const add = (a, b) => {
+    return a + b;
+}
+*/
+const add = (a, b) => a + b; //Implicitly return a + b
+
+const arr = [1, 2, 3, 4, 5];
+
+arr.filter(i => i % 2 === 0).map(i => i * i).forEach(i => console.log(i));
+
+const arr2 = [23, 43536, 4353536, 242, 4647];
+

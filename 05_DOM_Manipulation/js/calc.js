@@ -4,7 +4,10 @@ const result = document.getElementById("result");
 const myHistory = document.getElementById("history");
 
 function getValues() {
-    return [Number.parseFloat(num1.value), Number.parseFloat(num2.value)];
+    return [
+        Number.parseFloat(num1.value), 
+        Number.parseFloat(num2.value)
+    ];
 }
 
 function writeResult(newResult) {
