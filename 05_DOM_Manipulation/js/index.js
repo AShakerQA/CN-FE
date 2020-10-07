@@ -4,17 +4,28 @@ const input = document.querySelector("#myInput");
 const newText = document.getElementById("newText");
 const output = document.getElementById("output");
 
-function update() {
-    // debugger;
-    header.innerText = input.value;
-}   
+const myButton = document.getElementById("myButton");
+const addNewButton = document.getElementById("addNewButton");
 
-function addNew() {
+input.addEventListener("keypress", function(event) {
+    console.log(event);
+    if (event.key === "Enter") {
+        update();
+    }
+});
+
+myButton.addEventListener("click", update);
+
+function update() {
+    header.innerText = input.value;
+}
+
+addNewButton.addEventListener("click", function() {
     const newP = document.createElement("p");
     newP.innerText = newText.value;
 
     output.appendChild(newP);
-}
+});
 
 const hello = function() {
     console.log("Hello, World!");
