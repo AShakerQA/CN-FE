@@ -1,5 +1,5 @@
 const createForm = document.getElementById("createForm");
-const readDiv = document.getElementById("readDiv");
+const duckOutput = document.getElementById("readDiv");
 
 createForm.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -19,24 +19,24 @@ createForm.addEventListener('submit', function (event) {
     }).then(response => { // Receive response
         return response.json(); // Convert response body to json
     }).then(data => { //json data from previous .then()
-        getAll();
+        renderDucks();
         this.reset();
     }).catch(error => console.log(error));
 });
 
-function getAll() {
+function renderDucks() {
     fetch("http://localhost:8081/duck/getAll")
         .then(response => response.json())
-        .then(ducks => {
-            console.log("Ducks: ", ducks);
-            readDiv.innerHTML = '';
-            ducks.forEach(function(duck) {
+        .then(arrayOfDucks => {
+            console.log("Ducks: ", arrayOfDucks);
+            duckOutput.innerHTML = '';
+            arrayOfDucks.forEach(function(duck) {
                 console.log(duck);
 
                 const card = document.createElement("div");
                 card.className = "card";
                 // card.setAttribute("class", "card");
-                readDiv.appendChild(card);
+                duckOutput.appendChild(card);
 
                 const cardBody = document.createElement("div");
                 cardBody.className = "card-body";
@@ -56,8 +56,25 @@ function getAll() {
                 habitat.className = "card-body";
                 habitat.innerText = "Habitat: " + duck.habitat;
                 cardBody.appendChild(habitat);
+
+                const deleteButton = document.createElement("a");
+                deleteButton.className = "card-link";
+                deleteButton.innerText = "Delete";
+                deleteButton.addEventListener("click", function () {
+                    deleteDuck(duck.id);
+                })
+                cardBody.appendChild(deleteButton);
             });
         }).catch(error => console.error(error));
 }
 
-getAll();
+renderDucks();
+
+function deleteDuck(id) {
+    fetch("http://localhost:8081/duck/deleteDuck/" + id, {
+        method: "DELETE"
+    }).then(response => {
+        console.log(response);
+        renderDucks();
+    }).catch(error => console.error(error));
+}
